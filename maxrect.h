@@ -21,6 +21,9 @@ typedef struct {
 	double x2, y2;
 } Rect;
 
+extern bool
+is_convex_quad(const Quad *quad);
+
 extern Rect
 max_aarect_in_quad(const Quad *quad);
 
