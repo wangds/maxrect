@@ -7,11 +7,15 @@ CFLAGS += -O2
 CFLAGS += -g
 LDLIBS += -lm
 
-all: convex.o maxrect.o
+all: demo convex.o maxrect.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+demo: demo.o convex.o maxrect.o
+	$(CC) $(CFLAGS) -o $@ $^ -lSDL2 $(LDLIBS)
+
 .PHONY: clean
 clean:
+	$(RM) demo demo.o
 	$(RM) convex.o maxrect.o
